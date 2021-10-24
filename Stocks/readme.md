@@ -15,4 +15,8 @@
 - img_cnn.h5 : 최적 모델 저장
 - img_data.npy : 학습 이미지를 numpy 배열로 저장(final_cnn에서 실행한것)
 - train : 반전형 데이터 확인 및 학습데이터 생성
+#### 주의사항
+- 키움API는 python 32bit에서만 실행됨
+- tensorflow 등은 python 64bit에서 실행
+- 실시간 데이터 받고 싶으면 daily_data python 32bit에서 실행 후 daily_modeling를 64bit에서 같이 실행, 2분 뒤부터 확인 가능
 ![(최종)오프콘_전시판넬_혁신성장사업_page-0001](https://user-images.githubusercontent.com/82499513/138584725-170d2b12-cdcb-4135-9234-d7b19de168ae.jpg)
