@@ -1,0 +1,124 @@
+/*********** top place *************/
+/* line 3, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 30px;
+}
+
+/* line 7, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0c3e72;
+  opacity: 0;
+  z-index: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/* line 19, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place .hover_Text {
+  padding: 40px;
+  position: absolute;
+  bottom: -20px;
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+@media (max-width: 991px) {
+  /* line 19, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+  .top_place .single_place .hover_Text {
+    padding: 15px;
+  }
+}
+
+/* line 31, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place .hover_Text .place_btn {
+  display: inline-block;
+  padding: 10px 25px;
+  color: #fff;
+  background-color: #fe5c24;
+  text-transform: capitalize;
+  margin-bottom: 14px;
+}
+
+/* line 39, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place .hover_Text h3 {
+  font-size: 30px;
+  line-height: 36px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  /* line 39, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+  .top_place .single_place .hover_Text h3 {
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
+
+/* line 49, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place .hover_Text p {
+  color: #fff;
+}
+
+/* line 52, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place .hover_Text .place_review {
+  margin-top: 15px;
+}
+
+/* line 54, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place .hover_Text .place_review a {
+  color: #fe5c24;
+}
+
+/* line 57, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place .hover_Text .place_review span {
+  color: #fff;
+}
+
+/* line 62, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place .details_icon {
+  float: right;
+}
+
+/* line 64, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place .details_icon i {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  color: #fff !important;
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+
+/* line 77, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place:hover .hover_Text {
+  opacity: 1;
+  visibility: visible;
+  bottom: 0;
+}
+
+/* line 82, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .single_place:hover:after {
+  opacity: .75;
+}
+
+/* line 87, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
+.top_place .btn_1 {
+  margin: 0 auto;
+  margin-top: 50px;
+}

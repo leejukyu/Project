@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%with messages = get_flashed_messages()%}
+            {%if messages %}
+                <script type="text/javascript">
+                    alert("{{messages[-1]}}");
+                </script>
+            {%endif%}
+        {%endwith%}
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">	
+        <link rel="stylesheet" type="text/css" href="/static/css/login_util.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/login.css">
+    </head>
+    <body>
+      <script>
+        function jbSubmit() {
+          var pw1 = document.getElementById( 'pw1' ).value;
+            var pw2 = document.getElementById( 'pw2' ).value;
+              if (confirm("가입하시겠습니까?")) {
+                if (pw1 != pw2) {
+                  alert("비밀번호를 확인해주십시오.")
+                  return false;
+            }
+          } 
+        }
+      </script>
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <form class="login100-form validate-form" action="/" method="POST">
+                        <span class="login100-form-title p-b-26">
+                            Register
+                        </span>
+                        <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                            <input class="input100" type="text" name="name" required>
+                            <span class="focus-input100" data-placeholder="Name"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                            <input class="input100" type="text" name="email" required>
+                            <span class="focus-input100" data-placeholder="Email"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+                            <input class="input100" type="text" name="id" required>
+                            <span class="focus-input100" data-placeholder="ID"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <span class="btn-show-pass">
+                                <i class="zmdi zmdi-eye"></i>
+                            </span>
+                            <input class="input100" type="password" name="pass" required>
+                            <span class="focus-input100" data-placeholder="Password"></span>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <div class="wrap-login100-form-btn">
+                                <div class="login100-form-bgbtn"></div>
+                                <a class="login100-form-btn" type='submit'>
+                                    Submit
+                                </a>
+                            </div>
+                        </div>
+                        <div class="container-login100-form-btn">
+                            <div class="wrap-login100-form-btn">
+                                <div class="login100-form-bgbtn"></div>
+                                <a class="login100-form-btn" href="/">
+                                    Return
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="dropDownSelect1"></div>
+    </body>
+</html>

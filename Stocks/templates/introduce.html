@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introduce</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- CSS 
+        ================================================== -->
+    <link href="/static/css/introduce_bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/introduce_style.css" rel="stylesheet" media="screen">
+      </head>
+  <body>
+    {% include "navbar.html" %}
+	  <!-- DETAILS 
+	      ================================================== -->
+	  <section class="detail">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="carousel-example-generic-2" class="carousel slide">
+										
+					  <!-- Wrapper for slides -->
+					  <div class="carousel-inner">
+						<div class="item active">
+							<div class="row">
+								<div class="col-sm-12 col-md-offset-1 col-md-6">
+								  <h3>What is the BoollsoneShot</h3>
+								  <h4>Bull market + One Shot</h4>
+								  <h6 style="text-align:left;">불 마켓(bull market, 황소장, 주식시장에서 황소가 뿔로 주가를 들어 올리듯이 오랜 기간 동안 주가가 오르는 상황을 이르는 말)과 원 샷(One Shot)의 합성으로 상승장의 좋은 기운처럼 프로젝트도 성공하자는 의미와 한 번의 정확한 의사결정으로 상승장을 캐치해내는 우수한 예측 모델이라는 의미를 가지고 있습니다.</h6>
+								</div>
+								<div class="col-sm-12 col-md-5">
+									<div class="app-screenshot">
+										<img src="/static/img/screenshots/logo.png" class="img-responsive" alt="App Screen 1">
+									</div>
+								</div>
+							</div>
+						</div>
+					    <div class="item">
+					      	<div class="row">
+					      		<div class="col-sm-12 col-md-offset-1 col-md-6">
+					      			<h3>OverView of the Project</h3>
+                                    <h4>주가를 분석하여 추세 예측 모델 구현</h4>
+					      			<h5 style="text-align:left;">주식 시장의 확산</h5>
+                                    <h6 style="text-align:left;">코로나19 확산으로 개인들의 주식투자 열풍이 거세졌습니다. 한국은행이 공개한 통계에 따르면 지난해 국내외 주식 운용액이 83조3000억원으로 기존 최대 금액에 비해 3배 이상 증가한 사상 최대 금액을 기록한 것으로 나타났습니다. </h6>
+                                    <h5 style="text-align:left;">비전문적 개인투자자</h5>
+                                    <h6 style="text-align:left;">한국리서치의 조사 결과 투자자 중 절반(48%)이 투자지식이 낮은 상태이며 절반 이상(60%)이 손실에 대한 불안감을 느끼고 있다 답했습니다. 이에 저희는 개인 투자자의 위험률 회피와 수익 극대화를 위한 보조프로그램을 개발하기로 하였습니다.</h6>
+					      		</div>
+					      		<div class="col-sm-12 col-md-5">
+					      			<div class="app-screenshot">
+					      				<img src="/static/img/screenshots/screen1.PNG" class="img-responsive" alt="App Screen 2">
+					      			</div>
+					      		</div>
+					      	</div>
+					    </div>
+					    <div class="item">
+					    	<div class="row">
+					    		<div class="col-sm-12 col-md-offset-1 col-md-6">
+					    			<h3>Flow Chart</h3>
+					      			<h5 style="text-align:left;">데이터 수집</h5>
+                                    <h6 style="text-align:left;">키움 API를 이용해 1분봉을 수집하여 train 데이터를 만들고 실시간으로 거래가 있을 때마다 데이터를 받아 일 분 동안 저장한 뒤 가공하여 DB에 저장하였습니다. FinanceDatereader로 일봉 데이터를 수집해 3개월간의 주식 상황을 시각화하였습니다.</h6>
+                                    <h5 style="text-align:left;">데이터 전처리</h5>
+                                    <h6 style="text-align:left;">최대 20분의 반전형 데이터를 스크롤 형식으로 가져왔습니다. 지지선과 저항선에서 벗어나는 데이터만 모아보기도 하고 추세선의 각도를 구해 보거나 반전형 데이터의 캔들을 라벨링 하는 등의 다양한 방식을 시도하였습니다. </h6>
+					    		</div>
+					    		<div class="col-sm-12 col-md-5">
+					    			<div class="app-screenshot">
+					    				<img src="/static/img/screenshots/screen2.PNG" class="img-responsive" alt="App Screen 3">
+					    			</div>
+					    		</div>
+					    	</div>
+						</div>
+					    <div class="item">
+					      <div class="row">
+					      	<div class="col-sm-12 col-md-offset-1 col-md-6">
+					      		<h3>Analysis method</h3>
+					      		<h5 style="text-align:left;">왜 RNN을 사용하지 않았는가?</h5>
+								<h6 style="text-align:left;">주식 데이터는 시계열성을 가지고 있어 많은 사람들이 RNN을 모델로 채택합니다. 하지만 이는 급격한 변동은 반영하지 못하고 이동평균선과 같은 후행성 지표일 뿐입니다. </h6>
+								<h5 style="text-align:left;">왜 CNN을 사용하였는가?</h5>
+								<h6 style="text-align:left;">RNN모델의 단점을 확인하여 시계열을 뺀 차트 이미지를 그대로 학습시키는 CNN모델을 선정하였습니다. 차트 이미지를 학습 시켰을 때 cross-entropy loss는 0.2로 가장 낮게 나타났습니다.</h6>
+					      	</div>
+					      	<div class="col-sm-12 col-md-5">
+					      		<div class="app-screenshot">
+					      			<img src="/static/img/screenshots/screen3.PNG" class="img-responsive" alt="App Screen 4">
+					      		</div>
+					      	</div>
+					      </div>
+                        </div>
+                          <div class="item">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-offset-1 col-md-6">
+                                    <h3>Features of technology</h3>
+                                    <h5 style="text-align:left;">패턴 분석 기법 활용</h5>
+									<h6 style="text-align:left;">주식 전문가들이 실제로 사용하는 볼린저 밴드와 캔들 차트를 보여주어 기술적 분석 방식을 이용한 매매, 매수 타이밍을 알려줍니다.</h6>
+									<h5 style="text-align:left;">주가 방향성 예측</h5>
+									<h6 style="text-align:left;">급격한 변동이 발생할 때 빠르게 대응하기 위해 1분봉을 사용하였고 실시간으로 상승, 하락, 보합의 각각 확률을 보여주어 이용자의 판단을 돕습니다.</h6>
+                                </div>
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="app-screenshot">
+                                        <img src="/static/img/screenshots/screen4.PNG" class="img-responsive" alt="App Screen 5">
+                                    </div>
+                                </div>
+                            </div>
+					      </div>
+					    </div>
+					
+					  <!-- Indicators -->
+					  <ol class="carousel-indicators">
+					    <li data-target="#carousel-example-generic-2" data-slide-to="0" class="active"></li>
+					    <li data-target="#carousel-example-generic-2" data-slide-to="1"></li>
+					    <li data-target="#carousel-example-generic-2" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic-2" data-slide-to="3"></li>
+						<li data-target="#carousel-example-generic-2" data-slide-to="4"></li>
+					  </ol>		
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	 <!-- JAVASCRIPT
+	     ================================================== -->
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/scripts.js"></script>
+</html>

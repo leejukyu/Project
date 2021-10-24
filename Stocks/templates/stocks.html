@@ -1,0 +1,151 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="/static/css/searchbar.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/static/css/table.css">
+    <link rel="stylesheet" href="/static/css/nav.css" />
+    <style>
+      .card-header {
+        width : 100%;
+        float: left;
+      }
+      .card-footer {
+        width : 100%;
+        height : 100px;
+      }    
+      .block-27 {
+        margin-top: 10px;
+        width:100%;
+        align-items: center;
+        justify-content: center;
+      }
+        .block-27 ul { 
+          display: inline-block; 
+          padding: 0;
+          margin: 0;
+          align-items: center;
+          justify-content: center;
+         }
+          .block-27 ul li {
+            display: inline-block;
+            margin-bottom: 4px;
+            font-weight: 400; }
+            
+            .block-27 ul li a, .block-27 ul li span {
+              color: rgb(2, 2, 2);
+              text-align: center;
+              display: inline-block;
+              width: 40px;
+              height: 40px;
+              line-height: 40px;
+              border-radius: 50%;
+              border: 1px solid #e6e6e6; }
+            
+            .block-27 ul li.active a, .block-27 ul li.active span {
+              background: #b1abab;
+              color: rgb(255, 255, 255);
+              border: 1px solid transparent; }
+    </style>
+  </head>
+  <body>
+    {% include "navbar.html" %}
+    <div class="s131">
+      <div class="container-table100">
+        <div class="wrap-table100">
+          <div class="card-header"style="float: left">
+            <div> 
+              <p style = "font-size:1.5em">
+                {% if area == 'all' %}
+                  총 {{ stocksize }} 개의 종목이 있습니다.
+                {% elif area == 'search' %}
+                  '{{ search }}'로 조회한 결과, 총 {{ stocksize }} 개의 종목이 있습니다.
+                {% else %}
+                  '{{ area }}'로 조회한 결과, 총 {{stocksize}} 개의 종목이 있습니다.
+                {% endif %}
+              </p>
+            </div>
+            <form action="/stocks/search/0" method="POST" style = 'float:right'>
+              <div class="inner-form">
+                <div class="input-field first-wrap">
+                  <input id="search" name='search' type="text" placeholder="Search..." />
+                </div>
+                <div class="input-field second-wrap">
+                  <div class="input-select">
+                    <select data-trigger="" name="choices-single-defaul" onchange="if(this.value) location.href=(this.value)>
+                    <option placeholder="">CATEGORY</option>
+                    <option value='none'>모두</option>
+                    {% for area in areas %}
+                      <option value='/stocks/{{ area[0] }}/0'>{{ area[0] }}</option>
+                    {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <div class="input-field third-wrap">
+                    <button type="submit" class="btn-search">SEARCH</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="table100">
+            <table>
+              <thead>
+                <tr class="table100-head">
+                  <th style="width: 10%">No.</th>
+                  <th style="width: 15%">종목코드</th>
+                  <th style="width: 30%">종목명</th>
+                  <th style="width: 45%">업종</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for stock in range(stocks|length) %}
+                  <tr>
+                    <th scope="row">{{ stock + 1 }}</th>
+                    <td>{{ stocks[stock][0] }}</td>
+                    <td><a href="/chart/{{ stocks[stock][0] }}">{{ stocks[stock][1] }}</a></td>
+                    <td>{{ stocks[stock][2] }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="block-27">
+            <ul class="pagination" style="float: left">
+                {% if page_num > 0 %}
+                  <li class="active"><a href="/stocks/all/{{ page_num - 1 }}">&lt;</a></li>
+                {% else %}
+                  <li class="disabled"><a class="page-link" href="#">&lt;</a></li>
+                {% endif %}
+                {% for index in range(page_num - 4, page_num) %}
+                    {% if index >= 0 %}
+                      <li class="active"><a class="page-link" href="/stocks/all/{{ index }}">{{ index + 1 }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                    <li class="disabled"><a class="page-link" href="#">{{ page_num + 1 }}</a></li>
+                {% for index in range(page_num + 1, page_num + 5) %}
+                    {% if index <= stocksize // 20 %}
+                        <li class="active"><a class="page-link" href="/stocks/all/{{ index }}">{{ index + 1 }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_num < stocksize // 20 %}
+                    <li class="active"><a class="page-link" href="/stocks/all/{{ page_num + 1 }}">&gt;</a></li>
+                {% else %}
+                    <li class="disabled"><a class="page-link" href="#">&gt;</a></li>
+                {% endif %}
+            </ul>
+          </div>
+          <h4 align="right">Page {{ page_num + 1 }} of {{ stocksize // 20 + 1 }}</h4>
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/extention/choices.js"></script>
+    <script>
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Chart</title>
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/chart_style.css">
+        <style>
+            .container{
+                margin-top:100px;
+            }
+            .single_place {
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            .first {
+                float:left;
+            }
+        </style>
+    </head>
+    <body>
+        {% include "navbar.html" %}
+        <section class="top_place section_padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="section_tittle text-center">
+                            <h2>{{name[0]}} 차트</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='first'>
+                        <div class="col-lg-6 col-md-6">
+                            <img src="/static/img/candle.png" alt="candle">
+                        </div>
+                    </div>
+                    <div class='first' style='margin-top:100px'>
+                        <div class='se'>
+                            <table class="table">
+                                <p>반전신호 - 1분 뒤를 예측(최근 20분)</p>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Time
+                                        </th>
+                                        <th>
+                                            보합
+                                        </th>
+                                        <th>
+                                            상승
+                                        </th>
+                                        <th>
+                                            하락
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for result in results %}
+                                        <tr>
+                                            <td><a>{{result[0].split('.')[0]}}</a></td>
+                                            <td><a>{{result[2]}}%</a></td>
+                                            <td><a>{{result[3]}}%</a></td>
+                                            <td><a>{{result[4]}}%</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <div class='img'>
+                                {% if go == 'gogo' %}
+                                    <img alt="bar" src="/static/img/bar.png" style="width: 300px;"/>
+                                {% else %}
+                                    <img alt="nosignal" src="/static/img/nosignal.jpg" style="width: 200px;"/>
+                                {% endif %}         
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <img alt="bollinger" src="/static/img/bo.png" style="width: 550px;" />
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <img alt="bollinger" src="/static/img/tr.png" style="width: 550px;"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

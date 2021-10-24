@@ -1,0 +1,22 @@
+1. 키움API는 python 32bit에서만 실행됨
+
+2. tensorflow 등은 python 64bit에서 실행
+
+3. 웹 회원가입 및 로그인 버튼 비활성화, guest로 들어갈 것
+
+5. 실시간 데이터 받고 싶으면 daily_data python 32bit에서 실행 후 daily_modeling를 64bit에서 같이 실행, 2분 뒤부터 확인 가능
+
+6. Invester폴더에 계속 쓰이는 함수 파일 넣어 놓음
+- DBUpdater : 기본 DB생성 및 키움 1분 데이터
+- func : 반전형을 찾기 위한 함수들
+- graph : 시각화 함수들
+- Login : 키움API에 들어가기 위한 로그인 함수
+
+7.
+- add_data : 일봉 데이터 등록(웹실행시 자동실행)
+- app : 웹
+- daily_data : 실시간 일분봉 데이터 가져오기
+- final_cnn : 학습데이터 모델링한 파일
+- img_cnn.h5 : 최적 모델 저장
+- img_data.npy : 학습 이미지를 numpy 배열로 저장(final_cnn에서 실행한것)
+- train : 반전형 데이터 확인 및 학습데이터 생성
